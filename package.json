@@ -4,8 +4,7 @@
   "description": "This is an investment advisory platformn",
   "main": "index.js",
   "engines": {
-    "node": "12.16.1", 
-    "npm": "6.14.5"
+    "node": ">=12.16.1"
   },
   "scripts": {
     "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=20000 --coverage --runInBand --forceExit",
