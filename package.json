@@ -1,7 +1,7 @@
 {
-  "name": "hackton-backend",
+  "name": "wallet-advisor",
   "version": "1.0.0",
-  "description": "This is a Lambda EU3 Labs project\r # hackton-server\r A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place",
+  "description": "This is an investment advisory platformnp",
   "main": "index.js",
   "scripts": {
     "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=20000 --coverage --runInBand --forceExit",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LABS-EU3/hackton-backend.git"
+    "url": "git+https://github.com/Wallet-Advisor/backend-wallet-advisor.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LABS-EU3/hackton-backend/issues"
+    "url": "https://github.com/Wallet-Advisor/backend-wallet-advisor/issues"
   },
-  "homepage": "https://github.com/LABS-EU3/hackton-backend#readme",
+  "homepage": "https://github.com/Wallet-Advisor/backend-wallet-advisor",
   "dependencies": {
     "@sendgrid/mail": "^6.5.1",
     "app-root-path": "^3.0.0",
