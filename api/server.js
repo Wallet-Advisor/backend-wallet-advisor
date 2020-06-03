@@ -4,7 +4,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const routes = require("../routes/auth")
+const routes = require("../routes")
+
 const server = express();
 
 server.use(helmet());
