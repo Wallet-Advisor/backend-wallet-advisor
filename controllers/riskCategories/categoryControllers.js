@@ -21,12 +21,12 @@ async function handleCategoriesGet(req, res) {
     } else if (score >= 103 && score < 126) {
       score = 125;
     }
-    const riskScore = await db.findByRiskScore(score);
+    const riskCategory = await db.findByRiskCategory(score);
     return requestHandler.success(
       res,
       200,
       'All Events retrieved Successfully',
-      riskScore
+      riskCategory
     );
   } catch(error){
     return requestHandler.error(res, 500, `server error ${error.message}`);
@@ -37,7 +37,7 @@ async function handleCategoriesGet(req, res) {
 async function handleAssetsCategories (req, res) {
   let { id } = req.body;
   try {
-    const assetCategory = await db.findById(id);
+    const assetCategory = await db.findByCategoryId(id);
     return requestHandler.success(
       res,
       200,
