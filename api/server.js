@@ -4,30 +4,28 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const routes = require("../routes/auth")
+// const routes = require("../routes/auth")
 const server = express();
 
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
-server.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = req.server.get('env') === 'development' ? err : {};
+// server.use((err, req, res, next) => {
+//   res.locals.message = err.message;
+//   res.locals.error = req.server.get('env') === 'development' ? err : {};
 
-  winston.error(
-    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
-      req.method
-    } - ${req.ip}`
-  );
+//   winston.error(
+//     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
+//       req.method
+//     } - ${req.ip}`
+//   );
 
-  res.status(err.status || 500);
-  res.render('error');
-  next();
-});
+//   res.status(err.status || 500);
+//   res.render('error');
+//   next();
+// });
 
-
-server.use('/api', routes);
 
 server.get('/', (req, res) => {
   res.status(200).json({
