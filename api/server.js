@@ -1,10 +1,10 @@
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const dotenv = require('dotenv');
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+const dotenv = require("dotenv");
 dotenv.config();
 
-const routes = require("../routes")
+const routes = require("../routes");
 
 const server = express();
 
@@ -14,7 +14,7 @@ server.use(cors());
 
 server.use((err, req, res, next) => {
   res.locals.message = err.message;
-  res.locals.error = req.server.get('env') === 'development' ? err : {};
+  res.locals.error = req.server.get("env") === "development" ? err : {};
 
   winston.error(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
@@ -23,24 +23,23 @@ server.use((err, req, res, next) => {
   );
 
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
   next();
 });
 
+server.use("/api", routes);
 
-server.use('/api', routes);
-
-server.get('/', (req, res) => {
+server.get("/", (req, res) => {
   res.status(200).json({
     status: 200,
-    message: 'Hello from Wallet Advisor backend!'
+    message: "Hello from Wallet Advisor backend!",
   });
 });
 
-server.get('*', (req, res) => {
+server.get("*", (req, res) => {
   res.status(404).json({
     status: 404,
-    message: 'Invalid route!'
+    message: "Invalid route!",
   });
 });
 
