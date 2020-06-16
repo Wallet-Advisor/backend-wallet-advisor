@@ -4,8 +4,6 @@ const checkItem = require('../utils/checkInputs');
 const requestHandler = require('../utils/requestHandler');
 const authModel = require('../models/authModel');
 require('dotenv').config();
-// const teamModel = require('../models/participantTeamsModels');
-// const organizerModel = require('../models/eventTeamModel');
 const server = require('../api/server');
 
 module.exports = class UserValidator {
