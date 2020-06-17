@@ -9,12 +9,6 @@ exports.up = function(knex) {
         .references("users.id")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
-      table
-        .foreign("risk_category")
-        .references("risk_categories.id")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
-      
     });
   };
   
