@@ -25,7 +25,7 @@ async function handleCategoriesGet(req, res) {
     return requestHandler.success(
       res,
       200,
-      'All Events retrieved Successfully',
+      'All Investments retrieved Successfully',
       riskCategory
     );
   } catch(error){
@@ -41,7 +41,7 @@ async function handleAssetsCategories (req, res) {
     return requestHandler.success(
       res,
       200,
-      'All Events retrieved Successfully',
+      'All assets categories retrieved Successfully',
       assetCategory
     );
   } catch(error){
