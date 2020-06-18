@@ -94,7 +94,7 @@ module.exports = class Mailer {
       text:
         "You recently requested to reset your password. If this wasn't you, please ignore this mail.To reset your password click the button below",
       actionBtnText: 'Reset Password',
-      actionBtnLink: `${process.env.REDIRECT_URL}/resetpassword`
+      actionBtnLink: `${redirectUrl}/resetpassword`
     });
 
     requestHandler.success(res, statusCode, info, token);
@@ -143,7 +143,7 @@ module.exports = class Mailer {
       text:
         'Welcome To Wallet Advisor, Your trusted investment advisor. To verify your email please click the button below',
       actionBtnText: 'Verify Email',
-      actionBtnLink: `${process.env.REDIRECT_URL}/${action}?verified=true`
+      actionBtnLink: `${redirectUrl}/${action}?verified=true`
     });
 
     Mailer.createMail({
