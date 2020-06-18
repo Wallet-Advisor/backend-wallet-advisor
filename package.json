@@ -4,7 +4,8 @@
   "description": "This is an investment advisory platformn",
   "main": "index.js",
   "engines": {
-    "node": ">=12.16.1"
+    "node": "12.16.1",
+    "npm": "6.14.5"
   },
   "scripts": {
     "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=20000 --coverage --runInBand --forceExit",
@@ -39,7 +40,7 @@
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
-    "knex": "^0.20.4",
+    "knex": "^0.21.1",
     "mailgen": "^2.0.10",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
@@ -51,7 +52,7 @@
     "passport-github2": "^0.1.11",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
-    "pg": "^7.14.0",
+    "pg": "^8.0.3",
     "pg-types": "^3.0.0",
     "prettier": "^1.19.1",
     "validator": "^12.1.0",
