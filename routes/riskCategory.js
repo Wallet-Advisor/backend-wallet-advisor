@@ -9,7 +9,7 @@ const authenticate = require('../api/auth/authenticate');
 
 const router = Router();
 
-router.post('/risk-category', authenticate, categoryValidator.categoryScoreValidation, handleCategoriespost );
+router.post('/risk-category', authenticate, categoryValidator.categoryScoreValidation, handleCategoriesGet );
 router.post('/assets-category', authenticate, categoryValidator.validateID, handleAssetsCategories);
 
 module.exports = router;
