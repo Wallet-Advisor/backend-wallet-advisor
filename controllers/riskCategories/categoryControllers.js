@@ -19,7 +19,7 @@ async function handleCategoriesGet(req, res) {
     } else if (score >= 81 && score < 103) {
       score = 81;
     } else if (score >= 103 && score < 126) {
-      score = 125;
+      score = 103;
     }
     const riskCategory = await db.findByRiskCategory(score);
     return requestHandler.success(
