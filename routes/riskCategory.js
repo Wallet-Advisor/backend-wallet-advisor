@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const {
     handleCategoriesGet,
-    handleAssetsCategories
+    handleAssetsCategories,
 } = require('../controllers/riskCategories/categoryControllers');
 const categoryValidator = require('../middlewares/categoryValidator');
 
