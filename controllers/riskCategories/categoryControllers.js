@@ -1,15 +1,15 @@
 const db = require("../../models/riskCategoryModel");
-const requestHandler = require('../../utils/requestHandler');
+const requestHandler = require("../../utils/requestHandler");
 
 module.exports = {
   handleCategoriesGet,
-  handleAssetsCategories,
+  handleAssetsCategories
+  
 };
 
 async function handleCategoriesGet(req, res) {
   let { score } = req.body;
   try {
-
     if (score >= 16 && score < 38) {
       score = 16;
     } else if (score >= 38 && score < 60) {
@@ -25,27 +25,26 @@ async function handleCategoriesGet(req, res) {
     return requestHandler.success(
       res,
       200,
-      'All Investments retrieved Successfully',
+      "Risk Category retrieved Successfully",
       riskCategory
     );
-  } catch(error){
+  } catch (error) {
     return requestHandler.error(res, 500, `server error ${error.message}`);
   }
 }
 
-
-async function handleAssetsCategories (req, res) {
+async function handleAssetsCategories(req, res) {
   let { id } = req.body;
   try {
     const assetCategory = await db.findByCategoryId(id);
     return requestHandler.success(
       res,
       200,
-      'All assets categories retrieved Successfully',
+      "All assets retrieved Successfully",
       assetCategory
     );
-  } catch(error){
+  } catch (error) {
     return requestHandler.error(res, 500, `server error ${error.message}`);
   }
-
 }
+
