@@ -4,7 +4,7 @@ module.exports = {
   findByCategoryId,
   findByRiskCategory,
   findInfoByUserId,
-  findUserId,
+  findCategory,
   add,
 };
 
@@ -15,6 +15,11 @@ async function findByRiskCategory(score) {
   return riskCategory;
 }
 
+async function findCategory(category_id) {
+  const foundCategory = await db("risk_categories").select("category").where({ id: category_id });
+  return foundCategory;
+}
+
 async function findByCategoryId(id) {
   const categoryid = await db("assets_category").where({ category_id: id });
   return categoryid;
@@ -22,14 +27,10 @@ async function findByCategoryId(id) {
 
 async function findInfoByUserId(id) {
   const userId = await db("user_risk_category")
-  .select("user_id", "risk_score", "risk_category", )
+    .select("user_id", "risk_score", "risk_category")
     .where({ user_id: id })
     .first();
   return userId;
-}
-async function findUserId(userId) {
-  const foundId = await db("users").where({ id: userId });
-  return foundId;
 }
 
 async function add(userInfo) {
