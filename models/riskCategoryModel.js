@@ -6,6 +6,8 @@ module.exports = {
   findInfoByUserId,
   findCategory,
   add,
+  update,
+  remove
 };
 
 async function findByRiskCategory(score) {
@@ -39,3 +41,20 @@ async function add(userInfo) {
     .returning("id");
   return newUserInfo;
 }
+
+async function update(id, updatedInfo) {
+    const userInfoUpdate = await db('user_risk_category')
+      .where({ id })
+      .update(updatedInfo)
+      .returning('*')
+      .then(newInfo => newInfo[0]);
+    return userInfoUpdate;
+  }
+  
+
+async function remove(id) {
+    const userId = await db('user_risk_category')
+      .where({ id })
+      .delete();
+    return userId;
+  }
