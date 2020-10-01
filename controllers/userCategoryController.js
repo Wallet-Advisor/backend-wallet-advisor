@@ -3,7 +3,9 @@ const requestHandler = require("../utils/requestHandler");
 
 module.exports = {
   handleUserRiskCategoriesGet,
-  handleUserRiskCategoriesPost
+  handleUserRiskCategoriesPost,
+  handleUserCategoryDelete,
+  handleUserRiskCategoriesEdit
 };
 
 
@@ -17,7 +19,7 @@ async function handleUserRiskCategoriesGet(req, res) {
           const categoryValue = await db.findCategory(userCategoryDetails.risk_category);
           const userAssets = await db.findByCategoryId(userCategoryDetails.risk_category);
           userCategoryDetails.asset_category = userAssets;
-          userCategoryDetails.risk_category = categoryValue[0].category;
+          userCategoryDetails.risk_category = categoryValue;
       }
       return requestHandler.success(
         res,
@@ -44,10 +46,46 @@ async function handleUserRiskCategoriesPost(req, res) {
         res,
         201,
         'User Information was stored successfully!',
-        { user_id: Number(data.toString()) }
+        { id: Number(data.toString()) }
       );
     })
     .catch(error => {
       return requestHandler.error(res, 500, `server error ${error.message}`);
     });
+  }
+
+  async function handleUserRiskCategoriesEdit(req, res) {
+    const { userId } = await req.decodedToken;
+    const EditUserInfo = { 
+        risk_score: req.body.score,
+        risk_category: req.body.category,
+        user_id: userId
+    };
+    db.update(user, EditUserInfo)
+    .then(data => {
+      return requestHandler.success(
+        res,
+        201,
+        'User Information was stored successfully!',
+        { userInfo: data }
+      );
+    })
+    .catch(error => {
+      return requestHandler.error(res, 500, `server error ${error.message}`);
+    });
+  }
+
+  async function handleUserCategoryDelete(req, res) {
+    const { userId } = await req.decodedToken;
+    db.remove(userId)
+      .then(() => {
+        return requestHandler.success(
+          res,
+          200,
+          'your user category has been deleted successfully!'
+        );
+      })
+      .catch(error => {
+        return requestHandler.error(res, 500, `server error ${error.message}`);
+      });
   }
