@@ -311,3 +311,138 @@
 {"level":"info"}
 {"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
 {"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"error":{"code":"EADDRINUSE","errno":"EADDRINUSE","syscall":"listen","address":"::","port":4000},"level":"error","message":"uncaughtException: listen EADDRINUSE: address already in use :::4000\nError: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle [as _listen2] (net.js:1309:16)\n    at listenInCluster (net.js:1357:12)\n    at Server.listen (net.js:1445:7)\n    at Function.listen (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\node_modules\\express\\lib\\application.js:618:24)\n    at Object.<anonymous> (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js:5:8)\n    at Module._compile (internal/modules/cjs/loader.js:1158:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)\n    at Module.load (internal/modules/cjs/loader.js:1002:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:901:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)","stack":"Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle [as _listen2] (net.js:1309:16)\n    at listenInCluster (net.js:1357:12)\n    at Server.listen (net.js:1445:7)\n    at Function.listen (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\node_modules\\express\\lib\\application.js:618:24)\n    at Object.<anonymous> (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js:5:8)\n    at Module._compile (internal/modules/cjs/loader.js:1158:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)\n    at Module.load (internal/modules/cjs/loader.js:1002:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:901:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)","exception":true,"date":"Sun Oct 04 2020 12:02:39 GMT+0100 (West Africa Standard Time)","process":{"pid":11424,"uid":null,"gid":null,"cwd":"C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor","execPath":"C:\\Program Files\\nodejs\\node.exe","version":"v12.16.1","argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js"],"memoryUsage":{"rss":59527168,"heapTotal":52965376,"heapUsed":21089408,"external":1522237}},"os":{"loadavg":[0,0,0],"uptime":475381},"trace":[{"column":16,"file":"net.js","function":"Server.setupListenHandle [as _listen2]","line":1309,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"net.js","function":"listenInCluster","line":1357,"method":null,"native":false},{"column":7,"file":"net.js","function":"Server.listen","line":1445,"method":"listen","native":false},{"column":24,"file":"C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\node_modules\\express\\lib\\application.js","function":"Function.listen","line":618,"method":"listen","native":false},{"column":8,"file":"C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js","function":null,"line":5,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":1158,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":1178,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":1002,"method":"load","native":false},{"column":14,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":901,"method":"_load","native":false},{"column":12,"file":"internal/modules/run_main.js","function":"Function.executeUserEntryPoint [as runMain]","line":74,"method":"executeUserEntryPoint [as runMain]","native":false}]}
+{"error":{"code":"EADDRINUSE","errno":"EADDRINUSE","syscall":"listen","address":"::","port":4000},"level":"error","message":"uncaughtException: listen EADDRINUSE: address already in use :::4000\nError: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle [as _listen2] (net.js:1309:16)\n    at listenInCluster (net.js:1357:12)\n    at Server.listen (net.js:1445:7)\n    at Function.listen (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\node_modules\\express\\lib\\application.js:618:24)\n    at Object.<anonymous> (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js:5:8)\n    at Module._compile (internal/modules/cjs/loader.js:1158:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)\n    at Module.load (internal/modules/cjs/loader.js:1002:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:901:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)","stack":"Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle [as _listen2] (net.js:1309:16)\n    at listenInCluster (net.js:1357:12)\n    at Server.listen (net.js:1445:7)\n    at Function.listen (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\node_modules\\express\\lib\\application.js:618:24)\n    at Object.<anonymous> (C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js:5:8)\n    at Module._compile (internal/modules/cjs/loader.js:1158:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)\n    at Module.load (internal/modules/cjs/loader.js:1002:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:901:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)","exception":true,"date":"Sun Oct 04 2020 12:07:52 GMT+0100 (West Africa Standard Time)","process":{"pid":17144,"uid":null,"gid":null,"cwd":"C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor","execPath":"C:\\Program Files\\nodejs\\node.exe","version":"v12.16.1","argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js"],"memoryUsage":{"rss":59539456,"heapTotal":52965376,"heapUsed":21080512,"external":1522237}},"os":{"loadavg":[0,0,0],"uptime":475695},"trace":[{"column":16,"file":"net.js","function":"Server.setupListenHandle [as _listen2]","line":1309,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"net.js","function":"listenInCluster","line":1357,"method":null,"native":false},{"column":7,"file":"net.js","function":"Server.listen","line":1445,"method":"listen","native":false},{"column":24,"file":"C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\node_modules\\express\\lib\\application.js","function":"Function.listen","line":618,"method":"listen","native":false},{"column":8,"file":"C:\\Users\\HP\\Documents\\wallet\\backend-wallet-advisor\\index.js","function":null,"line":5,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":1158,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":1178,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":1002,"method":"load","native":false},{"column":14,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":901,"method":"_load","native":false},{"column":12,"file":"internal/modules/run_main.js","function":"Function.executeUserEntryPoint [as runMain]","line":74,"method":"executeUserEntryPoint [as runMain]","native":false}]}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"errno":"ECONNRESET","code":"ESOCKET","syscall":"read","command":"CONN","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"errno":"ECONNRESET","code":"ESOCKET","syscall":"read","command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"ETIMEDOUT","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"errno":"EHOSTUNREACH","code":"ESOCKET","syscall":"connect","address":"159.122.219.55","port":587,"command":"CONN","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"errno":"ECONNRESET","code":"ESOCKET","syscall":"read","command":"CONN","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
