@@ -15,11 +15,11 @@ async function handleUserRiskCategoriesGet(req, res) {
   if(userId){
     try {
       const userCategoryDetails = await db.findInfoByUserId(userId);
-      if(userCategoryDetails.risk_category){
-          const categoryValue = await db.findCategory(userCategoryDetails.risk_category);
-          const userAssets = await db.findByCategoryId(userCategoryDetails.risk_category);
-          userCategoryDetails.asset_category = userAssets;
-          userCategoryDetails.risk_category = categoryValue;
+      if(userCategoryDetails[0].risk_category){
+          const categoryValue = await db.findCategory(userCategoryDetails[0].risk_category);
+          const userAssets = await db.findByCategoryId(userCategoryDetails[0].risk_category);
+          userCategoryDetails[0].asset_category = userAssets;
+          userCategoryDetails[0].risk_category = categoryValue;
       }
       return requestHandler.success(
         res,
@@ -61,7 +61,7 @@ async function handleUserRiskCategoriesPost(req, res) {
         risk_category: req.body.category,
         user_id: userId
     };
-    db.update(user, EditUserInfo)
+    db.update(userId, EditUserInfo)
     .then(data => {
       return requestHandler.success(
         res,
