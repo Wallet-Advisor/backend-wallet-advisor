@@ -14,23 +14,19 @@ async function find() {
 
 async function add(dollarRates) {
   const newDolarInfo = await db("dollar_funds")
-    .insert(dollarInfo)
-    .returning("*");
+    .insert(dollarRates)
+    // .returning("*");
   return newDolarInfo;
 }
 
-async function update(id, rates) {
-    const ratesUpdated = await db('dollar_funds')
-      .where({ id })
-      .update(updatedInfo)
-      .returning('*')
-      // .then(newInfo => newInfo[0]);
-    return ratesUpdated;
-  }
-  
+async function update(rates) {
+  const updatedRates = await db("dollar_funds")
+    .where({ isp: rates.isp })
+    .update(rates)
+    .returning("*")
+    // .then((newRates) => newRates[0]);
+    return updatedRates
+}
 
-async function empty() {
-    const emptyTable = await db('*')
-      .truncate();
-    return emptyTable;
-  }
+
+
