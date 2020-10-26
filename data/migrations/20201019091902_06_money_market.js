@@ -2,10 +2,10 @@ exports.up = function(knex) {
     return knex.schema.createTable("money_market", (table) => {
       table.increments();
       table.string("isp").notNullable();
-      table.integer("minimum").notNullable();
-      table.integer("current").notNullable();
+      table.varchar("minimum").notNullable();
+      table.varchar("current").notNullable();
       table
-      .integer("management")
+      .varchar("management")
       .unsigned()
       .notNullable();
     });

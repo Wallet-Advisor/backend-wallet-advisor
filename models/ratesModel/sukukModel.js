@@ -9,7 +9,7 @@ module.exports = {
 async function add(rates) {
     const newRates = await db("sukuk")
       .insert(rates)
-      .returning("*");
+      // .returning("*");
     return newRates;
   }
 

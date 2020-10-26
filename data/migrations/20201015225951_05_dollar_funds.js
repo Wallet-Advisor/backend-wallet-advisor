@@ -1,19 +1,19 @@
 exports.up = function(knex) {
     return knex.schema.createTable("dollar_funds", (table) => {
       table.increments();
-      table.string("isp").notNullable();
-      table.integer("minimum").notNullable();
-      table.integer("current").notNullable();
+      table.varchar("isp").notNullable();
+      table.varchar("minimum").notNullable();
+      table.varchar("current").notNullable();
       table
-      .integer("thirty")
+      .varchar("thirty")
       .unsigned()
       .notNullable();
       table
-      .integer("ninety")
+      .varchar("ninety")
       .unsigned()
       .notNullable();
       table
-      .integer("one")
+      .varchar("one")
       .unsigned()
       .notNullable();
     });
