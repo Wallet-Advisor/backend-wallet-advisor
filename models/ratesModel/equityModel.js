@@ -2,7 +2,8 @@ const db = require("../../data/dbConfig");
 
 module.exports = {
     add,
-    find
+    find, 
+    update
   };
 
   
@@ -16,4 +17,13 @@ async function add(rates) {
   async function find() {
     const foundRates = await db('equity')
     return foundRates;
+  }
+
+  async function update(rates) {
+    const updatedRates = await db("equity")
+      .where({ isp: rates.isp })
+      .update(rates)
+      .returning("*")
+      // .then((newRates) => newRates[0]);
+      return updatedRates
   }

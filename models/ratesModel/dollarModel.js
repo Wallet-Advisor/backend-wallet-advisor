@@ -4,7 +4,6 @@ module.exports = {
   add,
   find,
   update,
-  empty
 };
 
 async function find() {

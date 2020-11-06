@@ -22,6 +22,16 @@ async function handleRatesPost(req, res) {
   const newEthicalRates = req.body.ethical;
   const newSukukRates = req.body.sukuk;
 
+  const existingDollarRates = await dollarDb.find();
+  const existingRates = await moneyDb.find();
+  const existingFixedIncomeRates = await fixedDb.find();
+  const existingEquityRates = await equityDb.find();
+  const existingExchgangeRate = await exchangeDb.find();
+  const existingShariahRates = await shariahDb.find();
+  const existingEthialRates = await ethicalDb.find();
+  const existingSukuRates = await sukukDb.find();
+  
+
   try {
     newDollars.map(async (rates) => {
       const details = {
@@ -32,104 +42,171 @@ async function handleRatesPost(req, res) {
         ninety: rates.ninety,
         one: rates.one,
       };
-      const existingDollarRates = await dollarDb.find();
-      if (existingDollarRates != null && existingDollarRates != undefined) {
-        existingDollarRates.map(async (rate) => {
-          if (rate.isp === rates.isp) {
-            await dollarDb.update(rates);
-          } else {
-            const addedDollarRates = await dollarDb.add(details);
-            return addedDollarRates;
-          }
-        });
-      }
+      // if (existingDollarRates != null && existingDollarRates != undefined) {
+      //   existingDollarRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await dollarDb.update(details);
+      //     } else {
+            await dollarDb.add(details);
+      //     }
+      //   });
+      // }
     });
 
     newMoneyMarket.map(async (rates) => {
-      const existingRates = await moneyDb.find();
-      if (existingRates != null && existingRates != undefined) {
-        existingRates.map(async (rate) => {
-          if (rate.isp === rates.isp) {
-            await moneyDb.update(rates);
-          } else {
+      // if (existingRates != null && existingRates != undefined) {
+      //   existingRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await moneyDb.update({
+      //         isp: rates.isp,
+      //         minimum: rates.minimum,
+      //         current: rates.current,
+      //         management: rates.management,
+      //       });
+      //     } else {
             await moneyDb.add({
               isp: rates.isp,
               minimum: rates.minimum,
               current: rates.current,
               management: rates.management,
             });
-          }
-        });
-      }
+      //     }
+      //   });
+      // }
     });
 
     newFixedIncome.map(async (rates) => {
-      const existingFixedIncomeRates = await fixedDb.find();
-      if (
-        existingFixedIncomeRates != null &&
-        existingFixedIncomeRates != undefined
-      ) {
-        existingFixedIncomeRates.map(async (rate) => {
-          if (rate.isp === rates.isp) {
-            await fixedDb.update(rates);
-          } else {
+      // if (
+      //   existingFixedIncomeRates != null &&
+      //   existingFixedIncomeRates != undefined
+      // ) {
+      //   existingFixedIncomeRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await fixedDb.update({
+      //         isp: rates.isp,
+      //         minimum: rates.minimum,
+      //         year: rates.year,
+      //         management: rates.management,
+      //       });
+      //     } else {
             await fixedDb.add({
               isp: rates.isp,
               minimum: rates.minimum,
               year: rates.year,
               management: rates.management,
             });
-          }
-        });
-      }
+      //     }
+      //   });
+      // }
     });
-    newEquityRates.map(
-      async (rates) =>
-        await equityDb.add({
-          isp: rates.isp,
-          minimum: rates.minimum,
-          year: rates.year,
-          management: rates.management,
-        })
-    );
 
-    newExchangeRates.map(
-      async (rates) =>
-        await exchangeDb.add({
-          isp: rates.isp,
-          minimum: rates.minimum,
-          year: rates.year,
-          management: rates.management,
-        })
-    );
+    newEquityRates.map(async (rates) => {
+      // if (existingEquityRates != null && existingEquityRates != undefined) {
+      //   existingEquityRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await equityDb.update({
+      //         isp: rates.isp,
+      //         minimum: rates.minimum,
+      //         year: rates.year,
+      //         management: rates.management,
+      //       });
+      //     } else {
+            await equityDb.add({
+              isp: rates.isp,
+              minimum: rates.minimum,
+              year: rates.year,
+              management: rates.management,
+            });
+      //     }
+      //   });
+      // }
+    });
 
-    newShariahRates.map(
-      async (rates) =>
-        await shariahDb.add({
-          isp: rates.isp,
-          year: rates.year,
-          management: rates.management,
-        })
-    );
+    newExchangeRates.map(async (rates) => {
 
-    newEthicalRates.map(
-      async (rates) =>
-        await ethicalDb.add({
-          isp: rates.isp,
-          year: rates.year,
-          management: rates.management,
-        })
-    );
+      // if (existingExchgangeRate != null && existingExchgangeRate != undefined) {
+      //   existingExchgangeRate.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await exchangeDb.update({
+      //         isp: rates.isp,
+      //         minimum: rates.minimum,
+      //         year: rates.year,
+      //       });
+      //     } else {
+            await exchangeDb.add({
+              isp: rates.isp,
+              minimum: rates.minimum,
+              year: rates.year,
+            });
+      //     }
+      //   });
+      // }
+    });
 
-    newSukukRates.map(
-      async (rates) =>
-        (addedSukukRates = await sukukDb.add({
-          isp: rates.isp,
-          2024: rates["2024"],
-          2025: rates["2025"],
-          2020: rates["2020"],
-        }))
-    );
+    newShariahRates.map(async (rates) => {
+
+      // if (existingShariahRates != null && existingShariahRates != undefined) {
+      //   existingShariahRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await shariahDb.update({
+      //         isp: rates.isp,
+      //         year: rates.year,
+      //         management: rates.management,
+      //       });
+      //     } else {
+            await shariahDb.add({
+              isp: rates.isp,
+              year: rates.year,
+              management: rates.management,
+            });
+      //     }
+      //   });
+      // }
+    });
+
+    newEthicalRates.map(async (rates) => {
+     
+      // if (existingEthialRates != null && existingEthialRates != undefined) {
+      //   existingEthialRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await ethicalDb.update({
+      //         isp: rates.isp,
+      //         year: rates.year,
+      //         management: rates.management,
+      //       });
+      //     } else {
+            await ethicalDb.add({
+              isp: rates.isp,
+              year: rates.year,
+              management: rates.management,
+            });
+      //     }
+      //   });
+      // }
+    });
+
+    newSukukRates.map(async (rates) => {
+
+      // if (existingSukuRates != null && existingSukuRates != undefined) {
+      //   existingSukuRates.map(async (rate) => {
+      //     if (rate.isp === rates.isp) {
+      //       await sukukDb.update({
+      //         isp: rates.isp,
+      //         2024: rates["2024"],
+      //         2025: rates["2025"],
+      //         2020: rates["2020"],
+      //       });
+      //     } else {
+            sukukDb.add({
+              isp: rates.isp,
+              2024: rates["2024"],
+              2025: rates["2025"],
+              2020: rates["2020"],
+            });
+      //     }
+      //   });
+      // }
+    });
 
     return requestHandler.success(res, 200, "Rates are stored successfully!");
   } catch (error) {
