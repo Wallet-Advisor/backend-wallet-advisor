@@ -4,6 +4,7 @@ const requestHandler = require('../utils/requestHandler');
 const { usersToken } = require('../utils/generateToken');
 const winston = require('../config/winston');
 const server = require('../api/server');
+const sgMail = require('@sendgrid/mail');
 
 const redirectUrl = process.env.REDIRECT_URL;
 
@@ -58,7 +59,7 @@ module.exports = class Mailer {
    * @param {string} subject
    */
   static async createMail({ to, message, subject }) {
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({ 
       service: 'SendGrid',
       auth: {
         user: process.env.SENDGRID_USERNAME,
@@ -134,11 +135,11 @@ module.exports = class Mailer {
    * @param {string} token
    * @param {string} email
    */
-  static async confirmEmail(user, action) {
+  static async confirmEmail(user, userEmail, action) {
     const token = usersToken(user);
     server.locals = token;
     const template = await this.generateMailTemplate({
-      receiverName: user.email,
+      receiverName: userEmail.email,
       intro: 'Verify Email',
       text:
         'Welcome To Wallet Advisor, Your trusted investment advisor. To verify your email please click the button below',
@@ -147,7 +148,7 @@ module.exports = class Mailer {
     });
 
     Mailer.createMail({
-      to: user.email,
+      to: userEmail.email,
       subject: 'Verify Email',
       message: template
     });

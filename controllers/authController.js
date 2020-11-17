@@ -7,19 +7,21 @@ const Mailer = require("../utils/mailer");
 const register = (req, res) => {
   try {
     const newUser = req.newuser;
-    const { id } = req.params;
-    if (id) {
-      Mailer.confirmEmail(newUser, `login`);
+    const userEmail = req.body;
+    // const { id } = req.params;
+    // if (id) {
+      Mailer.confirmEmail(newUser, userEmail, `login`);
       generateToken(
         res,
         201,
         "You are successfully signed up to wallet advisor",
         newUser
       );
-    } else {
-      Mailer.confirmEmail(newUser, `register`);
-      generateToken(res, 201, "Signup succesful", newUser);
-    }
+    // }
+    //  else {
+    //   Mailer.confirmEmail(newUser, userEmail, `register`);
+    //   generateToken(res, 201, "Signup succesful", newUser);
+    // }
   } catch (err) {
     return requestHandler.error(res, 500, `server error ${err.message}`);
   }

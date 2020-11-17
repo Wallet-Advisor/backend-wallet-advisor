@@ -603,3 +603,43 @@
 {"level":"info"}
 {"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
 {"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EMESSAGE","response":"550 The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements","responseCode":550,"command":"DATA","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"code":"EENVELOPE","command":"API","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EAUTH","response":"535 Authentication failed: Basic authentication is not allowed with 2FA enabled. To fix, see https://sendgrid.com/docs/for-developers/sending-email/authentication/#basic-authentication","responseCode":535,"command":"AUTH PLAIN","level":"info"}
+{"level":"info"}
+{"code":"EAUTH","response":"535 Authentication failed: Basic authentication is not allowed with 2FA enabled. To fix, see https://sendgrid.com/docs/for-developers/sending-email/authentication/#basic-authentication","responseCode":535,"command":"AUTH PLAIN","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EAUTH","response":"535 Authentication failed: Basic authentication is not allowed with 2FA enabled. To fix, see https://sendgrid.com/docs/for-developers/sending-email/authentication/#basic-authentication","responseCode":535,"command":"AUTH PLAIN","level":"info"}
+{"level":"info"}
+{"message":"Application started on http://localhost:4000","level":"info"}
+{"code":"EAUTH","response":"535 Authentication failed: Basic authentication is not allowed with 2FA enabled. To fix, see https://sendgrid.com/docs/for-developers/sending-email/authentication/#basic-authentication","responseCode":535,"command":"AUTH PLAIN","level":"info"}
+{"level":"info"}
+{"code":"EAUTH","response":"535 Authentication failed: Basic authentication is not allowed with 2FA enabled. To fix, see https://sendgrid.com/docs/for-developers/sending-email/authentication/#basic-authentication","responseCode":535,"command":"AUTH PLAIN","level":"info"}
+{"level":"info"}
