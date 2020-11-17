@@ -14,7 +14,7 @@ server.use(cors());
 
 server.use((err, req, res, next) => {
   res.locals.message = err.message;
-  res.locals.errovr = req.server.get("env") === "development" ? err : {};
+  res.locals.error = req.server.get("env") === "development" ? err : {};
 
   winston.error(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
