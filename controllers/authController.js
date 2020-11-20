@@ -3,25 +3,19 @@ const { generateToken } = require("../utils/generateToken");
 const requestHandler = require("../utils/requestHandler");
 const db = require("../models/authModel");
 const Mailer = require("../utils/mailer");
+// const sendMail = require("../utils/sendMail");
 
 const register = (req, res) => {
   try {
     const newUser = req.newuser;
-    const userEmail = req.body;
-    // const { id } = req.params;
-    // if (id) {
-      Mailer.confirmEmail(newUser, userEmail, `login`);
-      generateToken(
-        res,
-        201,
-        "You are successfully signed up to wallet advisor",
-        newUser
-      );
-    // }
-    //  else {
-    //   Mailer.confirmEmail(newUser, userEmail, `register`);
-    //   generateToken(res, 201, "Signup succesful", newUser);
-    // }
+    const { email } = req.body;
+    Mailer.confirmEmail(newUser, email, `login`);
+    generateToken(
+      res,
+      201,
+      "You are successfully signed up to wallet advisor",
+      newUser
+    );
   } catch (err) {
     return requestHandler.error(res, 500, `server error ${err.message}`);
   }
@@ -111,5 +105,5 @@ module.exports = {
   login,
   passwordReset,
   newPassword,
-  confirmEmail
+  confirmEmail,
 };

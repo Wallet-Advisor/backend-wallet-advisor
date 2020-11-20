@@ -5,6 +5,9 @@ const { usersToken } = require('../utils/generateToken');
 const winston = require('../config/winston');
 const server = require('../api/server');
 const sgMail = require('@sendgrid/mail');
+const nodemailerSendgrid = require('nodemailer-sendgrid');
+
+require('dotenv').config()
 
 const redirectUrl = process.env.REDIRECT_URL;
 
@@ -59,15 +62,13 @@ module.exports = class Mailer {
    * @param {string} subject
    */
   static async createMail({ to, message, subject }) {
-    const transporter = nodemailer.createTransport({ 
-      service: 'SendGrid',
-      auth: {
-        user: process.env.SENDGRID_USERNAME,
-        pass: process.env.SENDGRID_PASSWORD
-      }
-    });
+    const transporter = nodemailer.createTransport(
+      nodemailerSendgrid({
+          apiKey: process.env.SENDGRID_API_KEY
+      })
+  );
     const mailOptions = {
-      from: 'Wallet Advisor <admin@walletadvisor.ng>',
+      from: 'walletadvisor.ng <admin@walletadvisor.ng>',
       to,
       subject,
       html: message
@@ -95,7 +96,7 @@ module.exports = class Mailer {
       text:
         "You recently requested to reset your password. If this wasn't you, please ignore this mail.To reset your password click the button below",
       actionBtnText: 'Reset Password',
-      actionBtnLink: `${redirectUrl}/resetpassword`
+      actionBtnLink: `${process.env.REDIRECT_URL}/resetpassword`
     });
 
     requestHandler.success(res, statusCode, info, token);
@@ -135,22 +136,80 @@ module.exports = class Mailer {
    * @param {string} token
    * @param {string} email
    */
-  static async confirmEmail(user, userEmail, action) {
+  static async confirmEmail(user, email, action) {
     const token = usersToken(user);
     server.locals = token;
     const template = await this.generateMailTemplate({
-      receiverName: userEmail.email,
+      receiverName: email,
       intro: 'Verify Email',
       text:
-        'Welcome To Wallet Advisor, Your trusted investment advisor. To verify your email please click the button below',
+        'Welcome To WalletAdvisor, Your No. 1 investment advisory platform. To verify your email please click the button below',
       actionBtnText: 'Verify Email',
-      actionBtnLink: `${redirectUrl}/${action}?verified=true`
+      actionBtnLink: `${process.env.REDIRECT_URL}/${action}?verified=true`
     });
 
     Mailer.createMail({
-      to: userEmail.email,
+      to: email,
       subject: 'Verify Email',
       message: template
     });
   }
-};
+
+  
+  
+  
+  // static async generateMailTemplate (options){
+  //     const {
+  //       receiverName,
+  //       intro,
+  //       text,
+  //       actionBtnText = '',
+  //       actionBtnLink = '',
+  //       footerText = null
+  //     } = options;
+  //     const email = {
+  //         body: {
+  //             name: receiverName,
+  //             intro,
+  //             action: {
+  //               instructions: text,
+  //               button: {
+  //                 color: '#33b5e5',
+  //                 text: actionBtnText,
+  //                 link: actionBtnLink
+  //               }
+  //             },
+  //             ...(footerText && { outro: footerText })
+  //           }
+  //       }
+  //       const emailTemplate = mailGenerator.generate(email)
+  //     require('fs').writeFileSync('preview.html', emailTemplate, 'utf8')
+  //     return emailTemplate
+  //   }
+
+  //   static async sendMail(user, email, action) {
+  //     const token = usersToken(user);
+  //     server.locals = token;
+  //     const template = await this.generateMailTemplate({
+  //         receiverName: 'admin@walletadvisor.ng',
+  //         intro: 'Verify Email',
+  //         text:
+  //           'Welcome To WalletAdvisor, Your No. 1 investment advisory platform. To verify your email please click the button below',
+  //         actionBtnText: 'Verify Email',
+  //         actionBtnLink: `${process.env.REDIRECT_URL}/${action}?verified=true`
+  //       });
+  
+  //       const msg = {
+  //         to: email,
+  //         from:  'admin@walletadvisor.ng',
+  //         subject: 'verify email',
+  //         html: template,
+  //       }
+  //     try {
+  //       sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+  //       return sgMail.send(msg)
+  //     } catch (error) {
+  //       throw new Error(error.message)
+  //     }
+  //   }
+  };
