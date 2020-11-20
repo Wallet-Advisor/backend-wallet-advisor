@@ -8,9 +8,10 @@ const server = require('../api/server');
 
 module.exports = class UserValidator {
   static async userInput(req, res, next) {
-    const { email, password } = req.body;
+    const { email, password, fullname } = req.body;
     const check = checkItem({
       email,
+      fullname,
       password
     });
     if (Object.keys(check).length > 0) {
@@ -34,6 +35,7 @@ module.exports = class UserValidator {
     const hash = await bcrypt.hash(password, 15);
     const newUser = await authModel.createUser({
       email,
+      fullname,
       password: hash
     });
     req.newuser = newUser;

@@ -8,7 +8,6 @@ const UserValidator = require('../middlewares/userValidator');
 const router = Router();
 
 router.post('/register',UserValidator.userInput, register);
-router.post('/register/:id',UserValidator.userInput, register);
 router.post('/login', UserValidator.userLogin, login);
 router.post('/forgot-password',UserValidator.inviteInput, passwordReset)
 router.patch('/forgot-password',newPassword)
