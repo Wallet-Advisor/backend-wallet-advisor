@@ -1,7 +1,7 @@
 {
-  "name": "wallet-advisor-backend",
+  "name": "wallet-advisor",
   "version": "1.0.0",
-  "description": "wallet advisor backend",
+  "description": "This is an investment advisory platformnp",
   "main": "index.js",
   "scripts": {
     "test": "cross-env DB_ENV=testing jest --watch",
