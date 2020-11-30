@@ -3,7 +3,7 @@ const db = require('../data/dbConfig');
 async function getUserId(id) {
   const userId = await db('users')
     .where('users.id', id)
-    .select('fullname', 'username', 'email', 'bio', 'image_url')
+    .select('fullname', 'username', 'email', 'profile_image_url')
     .first();
   return userId;
 }
@@ -65,8 +65,7 @@ async function getUsers() {
       'u.email',
       'u.username',
       'u.fullname',
-      'u.bio',
-      'u.image_url'
+      'u.profile_image_url'
     )
     .returning('*');
   return users;
@@ -78,8 +77,7 @@ async function getSingleUser(filter) {
       'u.email',
       'u.username',
       'u.fullname',
-      'u.bio',
-      'u.image_url'
+      'u.profile_image_url'
     )
     .where(filter)
     .first();
@@ -89,7 +87,7 @@ const updateUser = async (changes, id) => {
   const user = await db('users')
     .where({ id })
     .update(changes)
-    .returning(['fullname', 'username', 'email', 'bio', 'image_url'])
+    .returning(['fullname', 'username', 'email', 'profile_image_url'])
     .then(userUpdate => userUpdate[0]);
   return user;
 };

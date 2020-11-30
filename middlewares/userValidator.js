@@ -42,6 +42,23 @@ module.exports = class UserValidator {
     next();
   }
 
+  static async userProfile(req, res, next) {
+    try {
+      const { email, username, fullname } = req.body;
+      const check = checkItem({
+        email,
+        username,
+        fullname
+      });
+      if (Object.keys(check).length > 0) {
+        return requestHandler.error(res, 400, check);
+      }
+      next();
+    } catch (error) {
+      return error;
+    }
+  }
+
   static async userLogin(req, res, next) {
     const { password, email } = req.body;
     try {

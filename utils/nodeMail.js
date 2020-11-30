@@ -26,6 +26,60 @@ var transporter = nodemailer.createTransport({
 
 
 module.exports = class NodeMailer {
+
+    /**
+   * Send password reset token to users email
+   * @param {string} token
+   * @param {string} email
+   */
+  static async forgotPassword(res, statusCode, info, user) {
+    const token = usersToken(user);
+    server.locals = token;
+    var mailOptions = {
+      from: username,
+      to: user.email,
+      subject:  'Password Reset',
+      text:
+      `You recently requested to reset your password. If this wasn't you, please ignore this mail.To reset your password click the button below
+      ${process.env.REDIRECT_URL}/resetPassword`,
+    };
+
+   transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Reset Password Email link sent successfully: ' + info.response);
+      }
+    });
+
+
+  }
+
+    /**
+   * Send success message if password reset is successful
+   * @param {string} email
+   */
+  static async resetPassword(res, statusCode, info, email) { 
+    var mailOptions = {
+      from: username,
+      to: user.email,
+      subject:  'Password Reset',
+      text:
+      `Your password was reset succesfully.You can now login to your account again.
+      ${redirectUrl}/login`
+    };
+
+   transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Password Reset Successful' + info.response);
+      }
+    });
+
+  }
+
+
       /**
    * Send email to confirm users email
    * @param {string} token

@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const { generateToken } = require("../utils/generateToken");
 const requestHandler = require("../utils/requestHandler");
 const db = require("../models/authModel");
-const Mailer = require("../utils/mailer");
+// const Mailer = require("../utils/mailer");
 const NodeMail = require("../utils/nodeMail");
 // const sendMail = require("../utils/sendMail");
 
@@ -26,10 +26,10 @@ const login = (req, res) => {
   // login endpoint
   try {
     const payload = req.checked
-    if (payload.email.verified) {
+    if (payload.verified) {
       generateToken(res, 200, "Login succesful", payload);
     } else {
-      Mailer.confirmEmail(payload, `login`);
+      NodeMail.confirmEmail(payload, `login`);
       generateToken(
         res,
         200,
@@ -46,7 +46,7 @@ const login = (req, res) => {
 const passwordReset = async (req, res) => {
   try {
     const user = req.checked;
-    return Mailer.forgotPassword(
+    return NodeMail.forgotPassword(
       res,
       200,
       "A reset password token has been sent to this email",
@@ -66,7 +66,7 @@ const newPassword = async (req, res) => {
       const foundUser = db.getSingleUser({ id });
       if (foundUser) {
         await db.updateUser({ password: hash }, id);
-        return Mailer.resetPassword(
+        return NodeMail.resetPassword(
           res,
           200,
           "Your Password Has Been Updated Successfully",
