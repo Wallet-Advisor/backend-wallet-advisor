@@ -3,13 +3,14 @@ const { generateToken } = require("../utils/generateToken");
 const requestHandler = require("../utils/requestHandler");
 const db = require("../models/authModel");
 const Mailer = require("../utils/mailer");
+const NodeMail = require("../utils/nodeMail");
 // const sendMail = require("../utils/sendMail");
 
 const register = (req, res) => {
   try {
     const newUser = req.newuser;
-    const { email } = req.body;
-    Mailer.confirmEmail(newUser, email, `login`);
+    // Mailer.confirmEmail(newUser, email, `login`);
+    NodeMail.confirmEmail(newUser, `login`);
     generateToken(
       res,
       201,
@@ -24,8 +25,8 @@ const register = (req, res) => {
 const login = (req, res) => {
   // login endpoint
   try {
-    const payload = req.checked;
-    if (payload.verified) {
+    const payload = req.checked
+    if (payload.email.verified) {
       generateToken(res, 200, "Login succesful", payload);
     } else {
       Mailer.confirmEmail(payload, `login`);

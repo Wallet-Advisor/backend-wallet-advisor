@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const { mailGenerator } = require('../config/mail');
-const requestHandler = require('../utils/requestHandler');
-const { usersToken } = require('../utils/generateToken');
+const requestHandler = require('./requestHandler');
+const { usersToken } = require('./generateToken');
 const winston = require('../config/winston');
 const server = require('../api/server');
 const sgMail = require('@sendgrid/mail');

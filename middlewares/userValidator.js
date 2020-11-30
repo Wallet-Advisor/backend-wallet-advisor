@@ -64,12 +64,12 @@ module.exports = class UserValidator {
         );
         if (returnUser && checkPassword) {
           // eslint-disable-next-line require-atomic-updates
-          req.checked = returnUser;
+          req.checked = { email: returnUser.email, fullname: returnUser.fullname };
           next();
         }
       }
 
-      return requestHandler.error(res, 400, 'wrong credentials');
+      return requestHandler.error(res, 400, "Incorrect login credentials");
     } catch (err) {
       return err;
     }

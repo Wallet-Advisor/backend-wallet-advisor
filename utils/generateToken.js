@@ -34,4 +34,4 @@ const usersToken = user => {
 
 
 
-module.exports = { generateToken, usersToken};
+module.exports = { generateToken, usersToken };

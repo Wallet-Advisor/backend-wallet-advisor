@@ -37,7 +37,8 @@ const confirmEmail = async id => {
 const createUser = async user => {
   const userCreated = await db("users")
     .insert(user)
-    .returning("id");
+    .returning("*")
+    .then(data => data[0]);
   return userCreated;
 };
 

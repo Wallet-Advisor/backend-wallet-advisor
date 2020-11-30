@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const {
-  register,login,newPassword,passwordReset
+  register,login,newPassword,passwordReset, confirmEmail
 } = require('../controllers/authController');
 const UserValidator = require('../middlewares/userValidator');
 
@@ -11,6 +11,7 @@ router.post('/register',UserValidator.userInput, register);
 router.post('/login', UserValidator.userLogin, login);
 router.post('/forgot-password',UserValidator.inviteInput, passwordReset)
 router.patch('/forgot-password',newPassword)
+router.route('/verify_email').post(UserValidator.validateToken, confirmEmail);
 
 
 
