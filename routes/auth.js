@@ -10,7 +10,7 @@ const router = Router();
 router.post('/register',UserValidator.userInput, register);
 router.post('/login', UserValidator.userLogin, login);
 router.post('/forgotpassword', UserValidator.inviteInput, passwordReset)
-router.patch('/resetpassword',newPassword)
+router.route('/resetpassword').patch(UserValidator.validateToken, newPassword);
 router.route('/verify_email').post(UserValidator.validateToken, confirmEmail);
 
 

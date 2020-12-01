@@ -52,7 +52,7 @@ module.exports = class UserValidator {
       });
       if (Object.keys(check).length > 0) {
         return requestHandler.error(res, 400, check);
-      }
+      } 
       next();
     } catch (error) {
       return error;
@@ -81,7 +81,7 @@ module.exports = class UserValidator {
         );
         if (returnUser && checkPassword) {
           // eslint-disable-next-line require-atomic-updates
-          req.checked = { email: returnUser.email, fullname: returnUser.fullname };
+          req.checked = { email: returnUser.email, fullname: returnUser.fullname, id: returnUser.id, verified: returnUser.verified};
           next();
         }
       }

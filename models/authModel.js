@@ -7,8 +7,7 @@ async function getSingleUser(filter) {
       'u.email',
       'u.username',
       'u.fullname',
-      'u.bio',
-      'u.image_url'
+      'u.profile_image_url'
     )
     .where(filter)
     .first();
@@ -49,15 +48,15 @@ const findUSer = async email => {
   return foundUser;
 };
 
-
-
 const updateUser = async (changes, id) => {
-  const user = await db("users")
+  const user = await db('users')
     .where({ id })
     .update(changes)
-    .returning("id");
+    .returning(['fullname', 'username', 'email', 'profile_image_url'])
+    .then(userUpdate => userUpdate[0]);
   return user;
 };
+
 
 async function getUserBy(userValue) {
   const userData = await db("users")

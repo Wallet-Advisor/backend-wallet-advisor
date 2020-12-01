@@ -2,7 +2,8 @@ var nodemailer = require('nodemailer');
 const requestHandler = require('./requestHandler');
 const server = require('../api/server');
 const { usersToken } = require('./generateToken');
-require('dotenv').config()
+require('dotenv').config();
+const winston = require('../config/winston');
 
 
 
@@ -43,6 +44,8 @@ module.exports = class NodeMailer {
       `You recently requested to reset your password. If this wasn't you, please ignore this mail.To reset your password click the button below
       ${process.env.REDIRECT_URL}/resetPassword`,
     };
+    requestHandler.success(res, statusCode, info, token);
+    winston.info(token);
 
    transporter.sendMail(mailOptions, function(error, info){
       if (error) {
@@ -62,23 +65,25 @@ module.exports = class NodeMailer {
   static async resetPassword(res, statusCode, info, email) { 
     var mailOptions = {
       from: username,
-      to: user.email,
+      to: email,
       subject:  'Password Reset',
       text:
       `Your password was reset succesfully.You can now login to your account again.
-      ${redirectUrl}/login`
+      ${process.env.REDIRECT_URL}/login`
     };
 
-   transporter.sendMail(mailOptions, function(error, info){
+    requestHandler.success(res, statusCode, info);
+
+    transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Password Reset Successful' + info.response);
       }
     });
-
+    
   }
-
+  
 
       /**
    * Send email to confirm users email
