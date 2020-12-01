@@ -6,17 +6,17 @@ const {
   handleGetSingleUser,
   updateUserProfile
 } = require('../controllers/users/userController');
-const UserValidator = require('../middlewares/UserValidator');
+const UserValidator = require('../middlewares/userValidator');
 const upload = require('../config/cloudinary');
 
 
 const router = Router();
 
-router.get('/', authenticate, handleGetUserList);
-router.get('/:id', authenticate, handleGetSingleUser);
-router.get('/search', authenticate, handleGetSingleUser);
+router.get('/users/', authenticate, handleGetUserList);
+router.get('/users/:id', authenticate, handleGetSingleUser);
+router.get('/users/search', authenticate, handleGetSingleUser);
 router.put(
-  '/profile',
+  '/users/profile',
   authenticate,
   upload.single('profile_image_url'),
   UserValidator.userProfile,

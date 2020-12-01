@@ -13,7 +13,7 @@ const ratesCategoryRoutes = require('./ratesCategory');
 const router = Router();
 
 router.use('/', authRoutes);
-router.use('/users', usersRoutes);
+router.use('/', usersRoutes);
 router.use('/', riskCategoryRoutes);
 router.use('/', assetsCategoryRoutes);
 router.use('/user-category', userInfoCategoryRoutes);
