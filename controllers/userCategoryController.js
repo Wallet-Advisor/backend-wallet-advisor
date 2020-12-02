@@ -28,7 +28,7 @@ async function handleUserRiskCategoriesGet(req, res) {
         userCategoryDetails 
       );
     } catch (error) {
-      return requestHandler.error(res, 500, `server error ${error.message}, user category does not exist`);
+      return requestHandler.error(res, 500, `user does not have a defined risk category`);
     }
   }
 }
