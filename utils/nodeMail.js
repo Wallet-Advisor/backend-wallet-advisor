@@ -72,8 +72,7 @@ module.exports = class NodeMailer {
       ${process.env.REDIRECT_URL}/login`
     };
 
-    requestHandler.success(res, statusCode, info);
-
+    
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
@@ -81,6 +80,7 @@ module.exports = class NodeMailer {
         console.log('Password Reset Successful' + info.response);
       }
     });
+    requestHandler.success(res, statusCode, info);
     
   }
   
