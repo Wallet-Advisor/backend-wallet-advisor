@@ -29,11 +29,11 @@ async function handleGetSingleUser(req, res) {
         user
       });
     }
-    return requestHandler.error(
-      res,
-      400,
-      `User with ${searchQuery} does not exist`
-    );
+    // return requestHandler.error(
+    //   res,
+    //   400,
+    //   `User with ${searchQuery} does not exist`
+    // );
   } catch (error) {
     return requestHandler.error(res, 500, `server error ${error.message}`);
   }
