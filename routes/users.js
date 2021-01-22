@@ -6,6 +6,10 @@ const {
   handleGetSingleUser,
   updateUserProfile
 } = require('../controllers/users/userController');
+const {
+  getMailList,
+  saveToMailList
+} = require("../controllers/users/userController")
 const UserValidator = require('../middlewares/userValidator');
 const upload = require('../config/cloudinary');
 
