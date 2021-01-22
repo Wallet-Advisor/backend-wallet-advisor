@@ -19,9 +19,9 @@ async function handleGetSingleUser(req, res) {
   if (id) {
     searchQuery = { id };
   }
-  if (email) {
-    searchQuery = { email };
-  }
+  // if (email) {
+  //   searchQuery = { email };
+  // }
   try {
     const user = await userModel.getSingleUser(searchQuery);
     if (user) {
@@ -29,13 +29,13 @@ async function handleGetSingleUser(req, res) {
         user,
       });
     }
-    // return requestHandler.error(
-    //   res,
-    //   400,
-    //   `User with ${searchQuery} does not exist`
-    // );
+    return requestHandler.error(
+      res,
+      400,
+      `User with ${searchQuery} does not exist`
+    );
   } catch (error) {
-    return requestHandler.error(res, 500, `server error ${error.message}`);
+    // return requestHandler.error(res, 500, `server error ${error.message}`);
   }
 }
 
