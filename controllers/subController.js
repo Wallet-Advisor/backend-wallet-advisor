@@ -17,20 +17,21 @@ async function handleSubscriptionGet(req, res) {
     );
   } catch (error) {
     return requestHandler.error(res, 500, "subscription not successful");
-  };
-};
-
+  }
+}
 
 const handleSubscriptionPost = (req, res) => {
-    const { email } = req.body;
-    db.saveToMailList(email).then(data => {
-        return requestHandler.success(
-            res,
-            200,
-            "You have successfully subscribed to our newsletter",
-            data
-        )
-    }).catch(error){
+  const { email } = req.body;
+  db.saveToMailList(email)
+    .then((data) => {
+      return requestHandler.success(
+        res,
+        200,
+        "You have successfully subscribed to our newsletter",
+        data
+      );
+    })
+    .catch((error) => {
       return requestHandler.error(res, 500, `server error ${error.message}`);
-    }
-}
+    });
+};
