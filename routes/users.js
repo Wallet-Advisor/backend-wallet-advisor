@@ -7,9 +7,10 @@ const {
   updateUserProfile
 } = require('../controllers/users/userController');
 const {
-  getMailList,
-  saveToMailList
-} = require("../controllers/users/userController")
+  handleSubscriptionGet,
+  handleSubscriptionPost
+} = require("../controllers/subController");
+
 const UserValidator = require('../middlewares/userValidator');
 const upload = require('../config/cloudinary');
 
@@ -19,6 +20,8 @@ const router = Router();
 router.get('/users/', authenticate, handleGetUserList);
 router.get('/users/:id', authenticate, handleGetSingleUser);
 router.get('/users/search', authenticate, handleGetSingleUser);
+router.get('/users/subscription', handleSubscriptionGet);
+router.post('/users/subscription', handleSubscriptionPost);
 router.put(
   '/users/profile',
   authenticate,

@@ -31,6 +31,6 @@ const handleSubscriptionPost = (req, res) => {
             data
         )
     }).catch(error){
-        
+      return requestHandler.error(res, 500, `server error ${error.message}`);
     }
 }
