@@ -17,8 +17,9 @@ async function handleSubscriptionGet(req, res) {
 }
 
 const handleSubscriptionPost = (req, res) => {
-  const { email } = req.body;
-  db.saveToMailList(email)
+  const { payload } = req.body;
+  
+  db.saveToMailList(payload)
   .then((data) => {
       return requestHandler.success(
         res,
