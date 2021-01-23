@@ -13,7 +13,7 @@ async function find(email) {
 const saveToMailList = async (details) => {
   let result = await find(details);
 
-  if (result) {
+  if (result.length !== 0) {
     return result;
   } else {
     const newDetails = await db("sub")
