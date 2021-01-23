@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable("subscription", (table) => {
       table.increments();
-      table.string("email").unique().notNullable()
+      table.string("email").unique()
   });
 };
 

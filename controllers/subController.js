@@ -1,10 +1,6 @@
 const db = require("../models/subscribeModel");
 const requestHandler = require("../utils/requestHandler");
 
-module.exports = {
-  handleSubscriptionGet,
-  handleSubscriptionPost,
-};
 
 async function handleSubscriptionGet(req, res) {
   try {
@@ -23,15 +19,20 @@ async function handleSubscriptionGet(req, res) {
 const handleSubscriptionPost = (req, res) => {
   const { email } = req.body;
   db.saveToMailList(email)
-    .then((data) => {
+  .then((data) => {
       return requestHandler.success(
         res,
         200,
         "You have successfully subscribed to our newsletter",
         data
-      );
-    })
-    .catch((error) => {
-      return requestHandler.error(res, 500, `server error ${error.message}`);
-    });
-};
+        );
+      })
+      .catch((error) => {
+        return requestHandler.error(res, 500, `server error ${error.message}`);
+      });
+    };
+    
+    module.exports = {
+      handleSubscriptionGet,
+      handleSubscriptionPost,
+    };
