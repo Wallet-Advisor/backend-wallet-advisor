@@ -1,9 +1,13 @@
 const nodemailer = require('nodemailer');
 const { mailGenerator } = require('../config/mail');
-const requestHandler = require('../utils/requestHandler');
-const { usersToken } = require('../utils/generateToken');
+const requestHandler = require('./requestHandler');
+const { usersToken } = require('./generateToken');
 const winston = require('../config/winston');
 const server = require('../api/server');
+const sgMail = require('@sendgrid/mail');
+const nodemailerSendgrid = require('nodemailer-sendgrid');
+
+require('dotenv').config()
 
 const redirectUrl = process.env.REDIRECT_URL;
 
@@ -58,15 +62,13 @@ module.exports = class Mailer {
    * @param {string} subject
    */
   static async createMail({ to, message, subject }) {
-    const transporter = nodemailer.createTransport({
-      service: 'SendGrid',
-      auth: {
-        user: process.env.SENDGRID_USERNAME,
-        pass: process.env.SENDGRID_PASSWORD
-      }
-    });
+    const transporter = nodemailer.createTransport(
+      nodemailerSendgrid({
+          apiKey: process.env.SENDGRID_API_KEY
+      })
+  );
     const mailOptions = {
-      from: 'Wallet Advisor <admin@walletadvisor.ng>',
+      from: 'walletadvisor.ng <admin@walletadvisor.ng>',
       to,
       subject,
       html: message
@@ -134,22 +136,24 @@ module.exports = class Mailer {
    * @param {string} token
    * @param {string} email
    */
-  static async confirmEmail(user, action) {
+  static async confirmEmail(user, email, action) {
     const token = usersToken(user);
     server.locals = token;
     const template = await this.generateMailTemplate({
-      receiverName: user.email,
+      receiverName: email,
       intro: 'Verify Email',
       text:
-        'Welcome To Wallet Advisor, Your trusted investment advisor. To verify your email please click the button below',
+        'Welcome To WalletAdvisor, Your No. 1 investment advisory platform. To verify your email please click the button below',
       actionBtnText: 'Verify Email',
       actionBtnLink: `${process.env.REDIRECT_URL}/${action}?verified=true`
     });
 
     Mailer.createMail({
-      to: user.email,
+      to: email,
       subject: 'Verify Email',
       message: template
     });
   }
-};
+
+
+  };

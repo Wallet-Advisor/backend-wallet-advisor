@@ -4,7 +4,8 @@ const requestHandler = require('../utils/requestHandler');
 const generateToken = (res, statusCode, message, user) => {
   const payload = {
     userId: user.id,
-    email: user.email
+    email: user.email,
+    fullname: user.fullname
   };
   const options = {
     expiresIn: '1 day'
@@ -34,4 +35,4 @@ const usersToken = user => {
 
 
 
-module.exports = { generateToken, usersToken};
+module.exports = { generateToken, usersToken };

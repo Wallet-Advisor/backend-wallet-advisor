@@ -4,15 +4,14 @@ const checkItem = require('../utils/checkInputs');
 const requestHandler = require('../utils/requestHandler');
 const authModel = require('../models/authModel');
 require('dotenv').config();
-// const teamModel = require('../models/participantTeamsModels');
-// const organizerModel = require('../models/eventTeamModel');
 const server = require('../api/server');
 
 module.exports = class UserValidator {
   static async userInput(req, res, next) {
-    const { email, password } = req.body;
+    const { email, password, fullname } = req.body;
     const check = checkItem({
       email,
+      fullname,
       password
     });
     if (Object.keys(check).length > 0) {
@@ -36,10 +35,27 @@ module.exports = class UserValidator {
     const hash = await bcrypt.hash(password, 15);
     const newUser = await authModel.createUser({
       email,
+      fullname,
       password: hash
     });
     req.newuser = newUser;
     next();
+  }
+
+  static async userProfile(req, res, next) {
+    try {
+      const { email, fullname } = req.body;
+      const check = checkItem({
+        email,
+        fullname
+      });
+      if (Object.keys(check).length > 0) {
+        return requestHandler.error(res, 400, check);
+      } 
+      next();
+    } catch (error) {
+      return error;
+    }
   }
 
   static async userLogin(req, res, next) {
@@ -64,12 +80,12 @@ module.exports = class UserValidator {
         );
         if (returnUser && checkPassword) {
           // eslint-disable-next-line require-atomic-updates
-          req.checked = returnUser;
+          req.checked = { email: returnUser.email, fullname: returnUser.fullname, id: returnUser.id, verified: returnUser.verified};
           next();
         }
       }
 
-      return requestHandler.error(res, 400, 'wrong credentials');
+      return requestHandler.error(res, 400, "Incorrect login credentials");
     } catch (err) {
       return err;
     }
