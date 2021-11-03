@@ -56,7 +56,7 @@
     "pg": "^8.0.3",
     "pg-types": "^3.0.0",
     "prettier": "^1.19.1",
-    "validator": "^12.1.0",
+    "validator": "^13.7.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
